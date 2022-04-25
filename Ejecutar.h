@@ -1,0 +1,9 @@
+#ifndef TP_1_ALGORITMOS_EJECUTAR_H
+#define TP_1_ALGORITMOS_EJECUTAR_H
+
+class Ejecutar {
+
+};
+
+
+#endif //TP_1_ALGORITMOS_EJECUTAR_H

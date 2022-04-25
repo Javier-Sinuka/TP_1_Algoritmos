@@ -3,7 +3,7 @@
 Lectora_AYED22::Lectora_AYED22() {
 }
 
-void Lectora_AYED22::lectora() {
+string Lectora_AYED22::lectora() {
     ifstream archivo;
     string texto;
 
@@ -16,8 +16,9 @@ void Lectora_AYED22::lectora() {
 
     while(!archivo.eof()){//Mientras no sea el final del archivo, recorre todo el archivo el eof
         getline(archivo,texto); //Almacenamos el contenido del archivo en la constante string
-        cout << texto << endl;
     }
 
     archivo.close();
+
+    return texto;
 }

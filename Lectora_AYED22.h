@@ -1,5 +1,7 @@
 #ifndef TP_1_ALGORITMOS_LECTORA_AYED22_H
 #define TP_1_ALGORITMOS_LECTORA_AYED22_H
+
+#include "Ejecutar.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -9,7 +11,9 @@ public:
     Lectora_AYED22();
 
     //Metodos de uso
-    void lectora();
+    string lectora();
+
+
 };
 
 

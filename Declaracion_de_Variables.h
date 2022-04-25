@@ -1,0 +1,14 @@
+//
+// Created by javie on 25/04/2022.
+//
+
+#ifndef TP_1_ALGORITMOS_DECLARACION_DE_VARIABLES_H
+#define TP_1_ALGORITMOS_DECLARACION_DE_VARIABLES_H
+
+
+class Declaracion_de_Variables {
+
+};
+
+
+#endif //TP_1_ALGORITMOS_DECLARACION_DE_VARIABLES_H

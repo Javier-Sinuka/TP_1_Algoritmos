@@ -1,5 +1,8 @@
-//
-// Created by javie on 25/04/2022.
-//
-
 #include "Show.h"
+
+Show::Show() {}
+
+void Show::ejecutar() {}
+
+void Show::get_show() {
+}

@@ -1,12 +1,14 @@
-//
-// Created by javie on 25/04/2022.
-//
-
 #ifndef TP_1_ALGORITMOS_SHOW_H
 #define TP_1_ALGORITMOS_SHOW_H
 
+#include "Instruccion.h"
 
-class Show {
+class Show : public Instruccion{
+public:
+    Show();
+    void ejecutar();
+    void get_show();
+
 
 };
 

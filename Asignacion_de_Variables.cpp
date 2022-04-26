@@ -1,5 +1,4 @@
-//
-// Created by javie on 25/04/2022.
-//
-
 #include "Asignacion_de_Variables.h"
+Asignacion_de_Variables::Asignacion_de_Variables() {}
+
+void Asignacion_de_Variables::ejecutar() {}

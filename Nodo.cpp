@@ -1,12 +1,11 @@
-
-
 #include <cstdlib>
 #include <iostream>
+#include <string>
 #include <sstream>
 
 using namespace std;
 
-template <class T> class Nodo { //Defino un nodo generico en cuanto a la parte de datos
+template <class T> class Nodo{ //Defino un nodo generico en cuanto a la parte de datos
     //el tipo de la lista lo defino cuando comience la clase
 private:
     T dato; //Dato

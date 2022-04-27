@@ -3,6 +3,8 @@
 
 #include "Nodo.cpp"
 
+using namespace std;
+
 template <class T> class Lista {
 private: Nodo<T>* czo; //Puntero comienzo, unica variable qeu voy a tener
 public:

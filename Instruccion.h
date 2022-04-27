@@ -1,7 +1,6 @@
 #ifndef TP_1_ALGORITMOS_INSTRUCCION_H
 #define TP_1_ALGORITMOS_INSTRUCCION_H
 
-#include "Nodo.cpp"
 #include <iostream>
 #include <fstream>
 using namespace std;

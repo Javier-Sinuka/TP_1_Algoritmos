@@ -1,7 +1,6 @@
 #ifndef TP_1_ALGORITMOS_PILA_H
 #define TP_1_ALGORITMOS_PILA_H
 
-#include "Nodo.cpp"
 #include "Lista.h"
 
 template <class T> class Pila : public Lista<T>{

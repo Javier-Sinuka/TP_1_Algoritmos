@@ -3,7 +3,7 @@
 template <class T>
 void Lista<T>::add(T d) //metodo de incorporacion de elementos a la listas
 {
-    Nodo<T>* nuevo = new Nodo<T>(d); // le pide a new que busque lugar en la memoria para guardar a 'd', crea un nodo nuevo
+    Nodo<T> *nuevo = new Nodo<T>(d); // le pide a new que busque lugar en la memoria para guardar a 'd', crea un nodo nuevo
     nuevo->set_next(czo);
     czo = nuevo;
 }

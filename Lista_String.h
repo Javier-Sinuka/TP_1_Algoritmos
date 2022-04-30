@@ -1,8 +1,6 @@
 #ifndef TP_1_ALGORITMOS_LISTA_STRING_H
 #define TP_1_ALGORITMOS_LISTA_STRING_H
 
-// Listas_01.cpp
-//
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
@@ -34,11 +32,12 @@ public:
     bool esvacia(void); //pregunta si esta vacia
     T cabeza(void); //me devuelve el dato que esta primero en la lista, no el primero puesto en la lista
     Lista_String* resto(void);//devuelve un puntero a lista
-    string toPrint(string p); //una manera de imprimir el contenido de la lista
+    string toPrint(); //una manera de imprimir el contenido de la lista
     T suma(T i); //chequeo de la suma de la lista
     int size();
     void borrar(void);
     void borrar_last();
+    void reverso();
 };
 template <class T>
 void Lista_String<T>::add(T d) //metodo de incorporacion de elementos a la listas
@@ -70,15 +69,16 @@ Lista_String<T>* Lista_String<T>::resto(void)
 }
 
 template <class T>
-string Lista_String<T>::toPrint(string p)
+//string Lista_String<T>::toPrint(string p)
+string Lista_String<T>::toPrint()
 {
     if (this->esvacia()) { //una vez que este vacia, retorna p
-        return p;
+        return "";
     }
     else {
         //std::ostringstream stm;
         ostringstream stm; // funciona como un cout, pero trabaja como buffer
-        stm << this->cabeza() << "-" << this->resto()->toPrint(p) << endl; //me muevo recursivamente; this->resto es lo mismo
+        stm << this->cabeza() << this->resto()->toPrint() << endl; //me muevo recursivamente; this->resto es lo mismo
         //que escribir 'resto'
         //cout<<endl<<" stm.str()= "<<stm.str()<<endl;
         return stm.str(); //retorna el buffer convertido en un string
@@ -121,6 +121,11 @@ void Lista_String<T>::borrar_last(){
     if(this->esvacia()){
 
     }
+}
+
+template <class T>
+void Lista_String<T>::reverso(){
+    //TODO: SEGUIR CON REVERSO
 }
 
 

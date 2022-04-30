@@ -9,7 +9,6 @@ void Lectura_Archivo::ejecutar() {
 }
 
 string Lectura_Archivo::get_texto() {
-    return texto;
 }
 
 
@@ -25,9 +24,19 @@ void Lectura_Archivo::almacenar_contenido_archivo() {
 
     while(!archivo.eof()){//Mientras no sea el final del archivo, recorre t0do el archivo el eof
         getline(archivo,linea); //Almacenamos el contenido del archivo en la constante string 'linea'
-        lista_texto->add(linea+"\n"); // Pasamos el valor de linea a una variable string para despues poder leerla
+        linea += "\n";
+        lista_texto->add(linea); // Pasamos el valor de linea a una variable string para despues poder leerla
     }
     archivo.close();
+}
+
+string Lectura_Archivo::lista_ordenada() {
+    if(this->lista_texto->esvacia()){
+        return "";
+    }
+    else{
+        ostringstream stm;
+    }
 }
 
 

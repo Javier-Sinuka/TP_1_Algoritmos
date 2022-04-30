@@ -17,6 +17,7 @@ public:
     void ejecutar();
     string get_texto();
     void almacenar_contenido_archivo();
+    string lista_ordenada();
 
 private:
     string texto;

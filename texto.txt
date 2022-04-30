@@ -1,3 +1,12 @@
 INT a
-BOOL b
-JUMP = 8 + a
+INT b
+a = 4
+b = 1
+BOOL c
+c = a < 1
+IF ( c ) THEN JUMP 12
+b = b * a
+a = a – 1
+c = a < 1
+JUMP 7
+SHOW b

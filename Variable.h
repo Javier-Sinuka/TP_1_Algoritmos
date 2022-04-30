@@ -4,7 +4,7 @@
 
 #ifndef TP_1_ALGORITMOS_VARIABLE_H
 #define TP_1_ALGORITMOS_VARIABLE_H
-
+#include <iostream>
 #include <sstream>
 using namespace std;
 
@@ -16,6 +16,8 @@ class Variable {
         bool v_bool;
 
     public:
+        Variable();
+
         Variable(string nombre_var, string tipo_var, int valor_var, bool valor_bool);
 
         string getNombre();

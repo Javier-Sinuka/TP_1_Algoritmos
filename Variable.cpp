@@ -3,7 +3,7 @@
 //
 
 #include "Variable.h"
-
+Variable::Variable(){};
 Variable::Variable(string nombre_var, string tipo_var, int valor_var, bool valor_bool){
     nombre = nombre_var;
     tipo = tipo_var;

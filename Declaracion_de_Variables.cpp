@@ -1,14 +1,12 @@
 #include "Declaracion_de_Variables.h"
+#include "Variable.h"
 Declaracion_de_Variables::Declaracion_de_Variables() {}
 
-void Declaracion_de_Variables::ejecutar() {
-
-    string instruccion = "INT a";
+void Declaracion_de_Variables::ejecutar(string instruccion) {
 
     int posInit = 0;
     int posFound = 0;
     string splitted;
-    int cont = 1;
 
     string tipoVar;
     string nombreVar;
@@ -17,15 +15,16 @@ void Declaracion_de_Variables::ejecutar() {
         posFound = instruccion.find(" ", posInit);
         splitted = instruccion.substr(posInit, posFound - posInit);
         posInit = posFound + 1;
+        tipoVar = splitted;
 
-        if (cont == 1){
-            tipoVar = splitted;
-            ++cont;
-
-        }else{
-            nombreVar = splitted;
-        }
+        posFound = instruccion.find("\n", posInit);
+        splitted = instruccion.substr(posInit, posFound - posInit);
+        posInit = posFound + 1;
+        nombreVar = splitted;
+        posFound = -1;
     }
 
     //crear objeto de tipo Variable con tipoVar y nombreVar
+    Variable v (nombreVar,tipoVar,0,false);
+    lista_de_variables ->add(v);
 }

@@ -1,0 +1,3 @@
+INT a
+BOOL b
+JUMP = 8 + a

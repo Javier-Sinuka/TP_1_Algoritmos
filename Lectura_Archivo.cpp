@@ -16,7 +16,7 @@ string Lectura_Archivo::get_texto() {
 void Lectura_Archivo::almacenar_contenido_archivo() {
     ifstream archivo;
 
-    archivo.open("C:\\Users\\javie\\OneDrive\\Escritorio\\Proyectos-Varios\\TP-1-Algoritmos\\texto.txt",ios::in); //Abrimos el archivo en modo lectura
+    archivo.open("/home/js/Escritorio/Facultad/TPs-Algoritmo/TP-1-Algoritmos/texto.txt",ios::in); //Abrimos el archivo en modo lectura
 
     if(archivo.fail()){
         cout << "No se pudo abrir el archivo" << endl;

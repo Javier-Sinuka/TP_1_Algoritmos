@@ -39,6 +39,7 @@ public:
     int size();
     void borrar(void);
     void borrar_last();
+    Lista_String* buscar();
 };
 template <class T>
 void Lista_String<T>::add(T d) //metodo de incorporacion de elementos a la listas

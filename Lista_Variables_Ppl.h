@@ -1,5 +1,6 @@
-#ifndef TP_1_ALGORITMOS_LISTA_VARIABLES_H
-#define TP_1_ALGORITMOS_LISTA_VARIABLES_H
+#ifndef TP_1_ALGORITMOS_LISTA_VARIABLES_PPL_H
+#define TP_1_ALGORITMOS_LISTA_VARIABLES_PPL_H
+
 
 #include <cstdlib>
 #include <iostream>
@@ -9,55 +10,57 @@ using namespace std;
 
 template <class T> class Nodo {
 private:
-    T dato;
+    string nombreVariable;
+    string tipoVariable;
+    int valorVariableInt;
+    bool valorVariableBool;
     Nodo* next;
 public:
     Nodo() { next = NULL; };
-    Nodo(T a) { dato = a; next = NULL; };
-    void set_dato(T a) { dato = a; };
+    Nodo(string nombre, string tipo, int valorVariableI, bool valorVariablB) { nombreVariable = nombre; tipoVariable = tipo; valorVariableInt = valorVariableI; valorVariableBool = valorVariablB; next = NULL; };
+    void set_dato(string nombre, string tipo, int valorI, bool valorB) { nombreVariable = nombre; tipoVariable = tipo; valorVariableInt = valorI; valorVariableBool = valorB;};
     void set_next(Nodo* n) { next = n; };
-    T get_dato() { return dato; };
+    T get_dato() { return nombreVariable,tipoVariable,valorVariableInt,valorVariableBool; };
     Nodo* get_next() { return next; };
     bool es_vacio() { return next == NULL; }
 };
 
-template <class T> class Lista {
+template <class T> class Lista_Variables {
 private: Nodo<T>* czo;
 
 public:
-    Lista() { czo = new Nodo<T>(); };
-    Lista(Nodo<T>* n) { czo = n; };
+    Lista_Variables() { czo = new Nodo<T>(); };
+    Lista_Variables(Nodo<T>* n) { czo = n; };
     //~Lista(void);
-    void add(T d); //sumar nodos a la lista
+    void add(string nombreVar, string tipoVar, int valorInt, bool valorBool); //sumar nodos a la lista
     bool esvacia(void);
     T cabeza(void); //retorna el dato del primer nodo
-    Lista* resto(void); //retorna el puntero al "resto" de la lista
+    Lista_Variables* resto(void); //retorna el puntero al "resto" de la lista
     //resto= lo que queda de la lista sin la cabeza
     string toPrint(string p);
-    T suma(T i);
     int size();
     void borrar(void); //borra la cabeza
     void borrar_last();//borra el ultimo
-    void concat(Lista<T>* l1);// le transfiere los datos de l1 a this
-    Lista<T>* copy(void);// hace una copia de la lista
+    void concat(Lista_Variables<T>* l1);// le transfiere los datos de l1 a this
+    Lista_Variables<T>* copy(void);// hace una copia de la lista
     void tomar(int n);//deja "vivos" los n primeros nodos y borra el resto
     //string get(){return czo->get_dato();};
 
 };
 template <class T>
-void Lista<T>::add(T d) //100
+void Lista_Variables<T>::add(string nombreVar, string tipoVar, int valorInt, bool valorBool) //100
 {
-    Nodo<T>* nuevo = new Nodo<T>(d);
+    Nodo<T>* nuevo = new Nodo<T>(nombreVar,tipoVar,valorInt,valorBool);
     nuevo->set_next(czo);
     czo = nuevo;
 }
 template <class T>
-bool Lista<T>::esvacia(void)
+bool Lista_Variables<T>::esvacia(void)
 {
     return czo->es_vacio();
 }
 template <class T>
-T Lista<T>::cabeza(void)
+T Lista_Variables<T>::cabeza(void)
 {
     if (this->esvacia()) {
         cout << " Error, Cabeza de lista vacia";
@@ -67,14 +70,14 @@ T Lista<T>::cabeza(void)
 }
 
 template <class T>
-Lista<T>* Lista<T>::resto(void)
+Lista_Variables<T>* Lista_Variables<T>::resto(void)
 {
-    Lista* l = new Lista(czo->get_next());
+    Lista_Variables* l = new Lista_Variables(czo->get_next());
     return (l);
 }
 
 template <class T>
-string Lista<T>::toPrint(string p)
+string Lista_Variables<T>::toPrint(string p)
 {
     if (this->esvacia()) {
         return p;
@@ -88,21 +91,7 @@ string Lista<T>::toPrint(string p)
     }
 }
 
-template <class T>
-T Lista<T>::suma(T i)
-{    //cout<<" i al entrar= "<<i<<endl;
-    if (this->esvacia()) {
-        return i;
-    }
-    else {
-
-        //cout<<"this->cabeza()= "<<this->cabeza()<<endl;
-        return this->resto()->suma(i + this->cabeza());
-    }
-}
-
-
-template <class T> int Lista<T>::size()
+template <class T> int Lista_Variables<T>::size()
 {
     if (this->esvacia()) return 0;
     return 1 + this->resto()->size();
@@ -110,7 +99,7 @@ template <class T> int Lista<T>::size()
 
 
 
-template <class T> void Lista<T>::borrar(void)
+template <class T> void Lista_Variables<T>::borrar(void)
 { //borra el nodo cabeza
     if (!this->esvacia()) {
         Nodo<T>* tmp = czo;
@@ -119,7 +108,7 @@ template <class T> void Lista<T>::borrar(void)
     }
 }
 
-template <class T> void Lista<T>::borrar_last()
+template <class T> void Lista_Variables<T>::borrar_last()
 { // borra el ultimo nodo
     if (!this->esvacia()) {
         if ((czo->get_next())->get_next() == NULL) {
@@ -130,7 +119,7 @@ template <class T> void Lista<T>::borrar_last()
     }
 }
 
-template <class T> void Lista<T>::concat(Lista<T>* l1)
+template <class T> void Lista_Variables<T>::concat(Lista_Variables<T>* l1)
 {// le transfiere los datos de l1 a this
     if (!(l1->esvacia())) {
         this->concat(l1->resto());
@@ -138,14 +127,14 @@ template <class T> void Lista<T>::concat(Lista<T>* l1)
     }
 }
 
-template <class T> Lista<T>* Lista<T>::copy(void)
+template <class T> Lista_Variables<T>* Lista_Variables<T>::copy(void)
 {
-    Lista<T>* aux = new Lista();
+    Lista_Variables<T>* aux = new Lista_Variables();
     aux->concat(this);
     return aux;
 }
 
-template <class T> void Lista<T>::tomar(int n)
+template <class T> void Lista_Variables<T>::tomar(int n)
 { //deja "vivos" los n primeros nodos y borra el resto
     if (this->size() > n) {
         this->borrar_last();
@@ -153,4 +142,4 @@ template <class T> void Lista<T>::tomar(int n)
     }
 }
 
-#endif //TP_1_ALGORITMOS_LISTA_VARIABLES_H
+#endif //TP_1_ALGORITMOS_LISTA_VARIABLES_PPL_H

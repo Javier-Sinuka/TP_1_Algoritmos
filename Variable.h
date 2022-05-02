@@ -10,7 +10,7 @@ using namespace std;
 
 class Variable {
     private:
-        string nombre;
+        char nombre;
         string tipo;
         int valor;
         bool v_bool;
@@ -18,9 +18,9 @@ class Variable {
     public:
         Variable();
 
-        Variable(string nombre_var, string tipo_var, int valor_var, bool valor_bool);
+        Variable(char nombre_var, string tipo_var, int valor_var, bool valor_bool);
 
-        string getNombre();
+        char getNombre();
 
         void setNombre(string nombre);
 

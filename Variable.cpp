@@ -4,19 +4,19 @@
 
 #include "Variable.h"
 Variable::Variable(){};
-Variable::Variable(string nombre_var, string tipo_var, int valor_var, bool valor_bool){
+Variable::Variable(char nombre_var, string tipo_var, int valor_var, bool valor_bool){
     nombre = nombre_var;
     tipo = tipo_var;
     valor = valor_var;
     v_bool = valor_bool;
     }
 
-string Variable::getNombre(){
+char Variable::getNombre(){
     return nombre;
 }
 
 void Variable::setNombre(string nombre) {
-    Variable::nombre = nombre;
+    nombre = nombre;
 }
 
 string Variable::getTipo() {

@@ -11,6 +11,9 @@ private:
 public:
     Declaracion_de_Variables();
     void ejecutar(string instruccion);
+    void agregarObjetoVariable (string tipo, char nombre);
+
+    Lista_String<Variable> *getListaDeVariables();
 };
 
 

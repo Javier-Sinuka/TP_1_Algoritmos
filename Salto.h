@@ -4,7 +4,7 @@
 
 #include "Instruccion.h"
 
-class Salto : public Instruccion {
+class Salto{
 public:
     Salto();
     void ejecutar();

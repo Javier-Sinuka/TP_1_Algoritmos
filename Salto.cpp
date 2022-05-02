@@ -2,4 +2,7 @@
 
 Salto::Salto() {}
 
-void Salto::ejecutar() {}
+void Salto::ejecutar() {
+
+
+}

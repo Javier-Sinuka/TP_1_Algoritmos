@@ -1,6 +1,6 @@
 #include "Lectura_Archivo.h"
 #include "Declaracion_de_Variables.h"
-
+#include "Salto.h"
 int identificar_instruccion (string instruccion){
     int posInit = 0;
     int posFound = 0;
@@ -24,9 +24,8 @@ int  main(){
     Lectura_Archivo l1;
     Declaracion_de_Variables d;
 
-    l1.almacenar_contenido_archivo();
-
     //Repetir para cada instruccion (cada nodo de lista de instrucciones)
+
     while (!l1.lista_texto->esvacia()) {
         string instruccion = l1.lista_texto->cabeza();
         int tipo_instruccion = identificar_instruccion(instruccion);
@@ -39,20 +38,25 @@ int  main(){
                 break;
             }
             case 2:
-                cout << "\nEs una instruccion de condicion";//Instruccion de condicion
+                d.getListaDeVariables();
+                //ejecutarCondicion(instruccion, d.getlista_de_variable)
+                cout << "\nSe ejecuto una instruccion de condicion";//Instruccion de condicion
                 break;
             case 3:
-                cout << "\nEs una instruccion de show";//instruccion de show
+                d.getListaDeVariables();
+                cout << "\nSe ejecuto instruccion de show";//instruccion de show
                 break;
             case 4:
-                cout << "\nEs una instruccion de jump";//instruccion de jump
+                cout << "\nSe ejecuto instruccion de jump";//instruccion de jump
                 break;
             case 5:
-                cout << "\nEs una instruccion de asignacion";//Instruccion de asigancion
+                cout << "\nSe ejecuto instruccion de asignacion";//Instruccion de asigancion
                 break;
         }
-
         l1.lista_texto = l1.lista_texto->resto();
+
     }
+
+
     return 0;
 }

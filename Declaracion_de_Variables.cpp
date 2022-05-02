@@ -9,7 +9,7 @@ void Declaracion_de_Variables::ejecutar(string instruccion) {
     string splitted;
 
     string tipoVar;
-    string nombreVar;
+    char nombreVar;
 
     while(posFound >= 0){
         posFound = instruccion.find(" ", posInit);
@@ -20,11 +20,29 @@ void Declaracion_de_Variables::ejecutar(string instruccion) {
         posFound = instruccion.find("\n", posInit);
         splitted = instruccion.substr(posInit, posFound - posInit);
         posInit = posFound + 1;
-        nombreVar = splitted;
+        nombreVar = splitted.at(0);
         posFound = -1;
     }
 
-    //crear objeto de tipo Variable con tipoVar y nombreVar
-    Variable v (nombreVar,tipoVar,0,false);
-    lista_de_variables ->add(v);
+    //Compruebo que el nombre de la variable
+    int valorASCII = nombreVar;
+
+    if(valorASCII >= 97 && valorASCII <= 122 ){
+        //Creacion de objeto de tipo Variable con tipoVar y nombreVar
+        agregarObjetoVariable(tipoVar,nombreVar);
+        return;
+    }
+
+    cout << "\nDeclaracion de variable incorrecta";
+    return;
+}
+
+Lista_String<Variable> *Declaracion_de_Variables::getListaDeVariables(){
+    return lista_de_variables;
+}
+
+void Declaracion_de_Variables::agregarObjetoVariable (string tipo, char nombre){
+    //Creo objeto variable y lo agrego a la lista
+    Variable v (nombre,tipo,0,false);
+    lista_de_variables->add(v);
 }

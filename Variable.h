@@ -9,6 +9,7 @@
 #define endl std::endl
 #define string std::string
 
+using namespace std;
 
 class Variable{
 private:

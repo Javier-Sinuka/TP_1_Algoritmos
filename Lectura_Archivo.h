@@ -2,7 +2,6 @@
 #define TP_1_ALGORITMOS_LECTURA_ARCHIVO_H
 
 #include "Instruccion.h"
-#include "Lista_String.h"
 #include "VarList.h"
 #include "Lista_String_PPL.h"
 
@@ -11,10 +10,9 @@
 #include <fstream>
 using namespace std;
 
-class Lectura_Archivo : public Instruccion{
+class Lectura_Archivo : public Instruccion {
 public:
-    //Lista_String<string> *lista_de_variables = new Lista_String<string>();
-    Lista_String_PPL *lista_de_variables;
+    Lista_String_PPL *lista_de_variables = new Lista_String_PPL;
     Lectura_Archivo();
     void ejecutar();
     void almacenar_contenido_archivo();

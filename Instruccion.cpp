@@ -3,7 +3,6 @@
 Instruccion::Instruccion() {}
 
 void Instruccion::ejecutar() {
-
 }
 
 

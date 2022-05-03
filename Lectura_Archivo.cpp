@@ -26,28 +26,6 @@ void Lectura_Archivo::almacenar_contenido_archivo() {
         }
     archivo.close();
 }
-//Leo la estructura ingresada y la retorno como una VARIABLE
-//Variable Lectura_Archivo::lectura_variables(string instruccion) {
-//    int posInit = 0;
-//    int posFound = 0;
-//    string splitted;
-//
-//    string tipoVar;
-//    string nombreVar;
-//
-//    while(posFound >= 0){
-//        posFound = instruccion.find(" ", posInit);
-//        splitted = instruccion.substr(posInit, posFound - posInit);
-//        posInit = posFound + 1;
-//        tipoVar = splitted;
-//
-//        posFound = instruccion.find("\n", posInit);
-//        splitted = instruccion.substr(posInit, posFound - posInit);
-//        posInit = posFound + 1;
-//        nombreVar = splitted; // Hacemos el string un CHAR
-//        posFound = -1;
-//    }
-//}
 
 //Convierto los strings en char
 char Lectura_Archivo::StringToCharArray(string Cadena){

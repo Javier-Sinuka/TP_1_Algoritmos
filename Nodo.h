@@ -18,6 +18,7 @@ public:
     //Getter
     string get_ContenidoNodo();
     Nodo* get_Next();
+    bool get_EsVacio();
 
     //Setter
     void set_LineaNueva(string linea_leida);

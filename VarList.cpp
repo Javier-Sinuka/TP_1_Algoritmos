@@ -8,7 +8,6 @@ Variable* VarList::get_head() { return head; }
 
 void VarList::add_variable(char Name, string Type, int IntValue) { // agrega correctamente
 
-
     Variable* NewVariable = new Variable(Name, Type, IntValue, nullptr);
 
     if (head == nullptr) {
@@ -53,7 +52,6 @@ int VarList::get_IntVariable(char character) {
 
             return aux->get_IntValue();
         }
-
         aux = aux->get_Next();
     }
 }

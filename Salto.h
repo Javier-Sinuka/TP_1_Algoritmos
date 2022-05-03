@@ -3,12 +3,17 @@
 
 
 #include "Instruccion.h"
+#include "Lista_String_PPL.h"
+#include "Instruccion.h"
 
-class Salto : public Instruccion {
+class Salto{
 public:
     Salto();
-    void ejecutar();
+    Nodo* ejecutar(string instruccion, Lista_String_PPL*,Nodo* czo_lista);
+    int numeroDeInstruccion(string instruccion);
 };
 
 
 #endif //TP_1_ALGORITMOS_SALTO_H
+
+

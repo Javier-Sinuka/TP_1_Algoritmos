@@ -1,38 +1,43 @@
 #ifndef TP_1_ALGORITMOS_VARIABLE_H
 #define TP_1_ALGORITMOS_VARIABLE_H
+#pragma once
+
 #include <iostream>
-#include <sstream>
-using namespace std;
 
-class Variable {
-    private:
-        string nombre;
-        string tipo;
-        int valor;
-        bool v_bool;
+#define cout std::cout
+#define cin std::cin
+#define endl std::endl
+#define string std::string
 
-    public:
-        Variable();
 
-        Variable(string nombre_var, string tipo_var, int valor_var, bool valor_bool);
+class Variable{
+private:
 
-        void declaracion_variable(string nombre_var, string tipo_var, int valor_var, bool valor_bool);
+    int IntValue;
+    bool BoolValue;
+    char Name;
+    string Type;
+    Variable* Next;
 
-        string getNombre();
+public:
 
-        void setNombre(string nombre);
+    Variable(char Name, string Type, int IntValue, Variable* Next);
 
-        string getTipo();
+    Variable(char Name, string Type, bool BoolValue, Variable* Next);
 
-        void setTipo(string tipo);
+    //getters
+    int get_IntValue();
+    int get_BoolValue();
+    char get_Name();
+    string get_Type();
+    Variable* get_Next();
 
-        int getValor();
-
-        void setValor(int valor);
-
-        bool getVBool();
-
-        void setVBool(bool vBool);
+    //setters
+    void set_IntValue(int value);
+    void set_BoolValue(int value);
+    void set_Name(char name);
+    void set_Next(Variable* Next);
 };
+
 
 #endif //TP_1_ALGORITMOS_VARIABLE_H

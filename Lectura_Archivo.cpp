@@ -7,11 +7,7 @@ Lectura_Archivo::Lectura_Archivo() {
 void Lectura_Archivo::ejecutar() {
 
 }
-
-string Lectura_Archivo::get_texto() {
-}
-
-
+//Lectura y almacenamiento de variables en la lista de Variables
 void Lectura_Archivo::almacenar_contenido_archivo() {
     ifstream archivo;
 
@@ -23,21 +19,47 @@ void Lectura_Archivo::almacenar_contenido_archivo() {
         exit(1);
     }
 
-    while(!archivo.eof()){//Mientras no sea el final del archivo, recorre t0do el archivo el eof
-        getline(archivo,linea); //Almacenamos el contenido del archivo en la constante string 'linea'
-        linea += "\n";
-        lista_texto->add(linea); // Pasamos el valor de linea a una variable string para despues poder leerla
-    }
+        while(!archivo.eof()){//Mientras no sea el final del archivo, recorre t0do el archivo el eof
+            getline(archivo,linea); //Almacenamos el contenido del archivo en la constante string 'linea'
+            linea += "\n";
+            lista_de_variables->add_string(linea); // Pasamos el valor de linea a una variable string para despues poder leerla
+        }
     archivo.close();
 }
+//Leo la estructura ingresada y la retorno como una VARIABLE
+//Variable Lectura_Archivo::lectura_variables(string instruccion) {
+//    int posInit = 0;
+//    int posFound = 0;
+//    string splitted;
+//
+//    string tipoVar;
+//    string nombreVar;
+//
+//    while(posFound >= 0){
+//        posFound = instruccion.find(" ", posInit);
+//        splitted = instruccion.substr(posInit, posFound - posInit);
+//        posInit = posFound + 1;
+//        tipoVar = splitted;
+//
+//        posFound = instruccion.find("\n", posInit);
+//        splitted = instruccion.substr(posInit, posFound - posInit);
+//        posInit = posFound + 1;
+//        nombreVar = splitted; // Hacemos el string un CHAR
+//        posFound = -1;
+//    }
+//}
 
-string Lectura_Archivo::lista_ordenada() {
-    if(this->lista_texto->esvacia()){
-        return "";
+//Convierto los strings en char
+char Lectura_Archivo::StringToCharArray(string Cadena){
+    int longitud = 1;
+    string str = Cadena;
+    char nombre[1];
+    longitud = str.length();
+
+    for (int i = 0; i < longitud; i++)
+    {
+        nombre[i] = str[i];
     }
-    else{
-        ostringstream stm;
-    }
+    return nombre[0];
 }
-
 

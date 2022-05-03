@@ -30,6 +30,8 @@ public:
     Lista_String() { czo = new Nodo_T<T>(); }; //Le pedimos a new que me devuelva donde esta en la memoria, algo de tipo nodo
     Lista_String(Nodo_T<T>* n) { czo = n; }; //Posibilidad de pasarle un puntero a comienzo
     //~Lista(void);
+    Nodo_T <T>* getComienzo();
+    void setComienzo(Nodo_T<T>* n);
     void add(T d); //Agregar nodos,
     bool esvacia(void); //pregunta si esta vacia
     T cabeza(void); //me devuelve el dato que esta primero en la lista, no el primero puesto en la lista
@@ -40,6 +42,16 @@ public:
     void borrar(void);
     void borrar_last();
 };
+template <class T>
+Nodo_T<T>* Lista_String<T>::getComienzo(){
+    return czo;
+};
+
+template <class T>
+void Lista_String<T>::setComienzo(Nodo_T<T>* n){
+    czo = n;
+};
+
 template <class T>
 void Lista_String<T>::add(T d) //metodo de incorporacion de elementos a la listas
 {

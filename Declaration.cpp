@@ -2,9 +2,9 @@
 
 Declaration::Declaration(string instruction, VarList* list) {
 
-	this->instruction = instruction;
+	this->instruction = instruction; 
 	this->list = list;
-}
+}                                               
 
 void Declaration::ejecutar() {
 

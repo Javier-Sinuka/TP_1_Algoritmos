@@ -40,7 +40,7 @@ bool IntStack::is_empty() {
 
 void IntStack::print(Integer* stack) {
 
-    if (stack == nullptr) { cout << "Final del stack"; return; }
+    if (stack == nullptr) { cout << "Final del stack" << endl; return; }
 
     cout << stack->get_Value() << endl;
 

@@ -5,6 +5,8 @@
 
 class VarList{
 private:
+
+    
     Variable* head;
 
 public:

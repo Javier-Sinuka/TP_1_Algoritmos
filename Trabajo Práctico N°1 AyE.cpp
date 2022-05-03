@@ -26,12 +26,15 @@ int main(){
     Declaration var2("b=4", &list);
     Declaration var3("c=3", &list); */
 
-    Assign test(operation,&list,&stack,&stack2);
-    
+    Assign test(operation, &list, &stack, &stack2);
 
-    test.ejecutar("4+4");
    
+    test.ejecutar("a=(1500 /10 )* 3 "); // tiene que haber un espacio en blanco a la derecha por cada valor numerico
 
+    
+    //Assign test2(operation, &list, &stack, &stack2);
+   
+    //cout<<test2.to_postfix("a <1 ", &stack);
 
 }
 

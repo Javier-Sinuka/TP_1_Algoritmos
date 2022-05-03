@@ -18,7 +18,7 @@ private:
 	string instruction;
 	VarList* list;
 	CharStack* stack;
-	IntStack* Intstack;
+	IntStack* StackInt;
 
 public:
 
@@ -42,7 +42,7 @@ public:
 
 	int GetOperatorWeight(char op);
 
-	void Calculate(string operation, CharStack* stack,VarList* list,IntStack* Stackint);
+	int Calculate(string operation, CharStack* stack,VarList* list,IntStack* Stackint);
 	//int
 
 	int PerformOperation(char operation, int operand1, int operand2);

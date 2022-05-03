@@ -9,13 +9,14 @@
 
 
 
-Assign::Assign(string instruct,VarList* list,CharStack* stack,IntStack* Stackint) {
+Assign::Assign(string instruct,VarList* list,CharStack* stack,IntStack* StackInt) {
 
 	
 	instruction = instruct;
 	cout << "Hola soy el constructor del orto" << endl;
 	this->list = list;
 	this->stack = stack;
+	this->StackInt = StackInt;
 } 
 
 
@@ -26,7 +27,9 @@ string Assign::to_postfix(string operation, CharStack* stack) {
 	for (int i = 0; i < operation.length(); i++) {
 
 		// Scanning each character from left.If character is a delimitter, move on. 
-		if (operation[i] == ' ' || operation[i] == ',') continue;
+		if (operation[i] == ',') continue;
+
+		else if (operation[i] == ' ') { postfix += operation[i]; }
 
 		// If character is operator, pop two elements from stack, perform operation and push the result back. 
 		else if (IsOperator(operation[i]))
@@ -90,7 +93,7 @@ int Assign::HasHigherPrecedence(char op1, char op2) {
 // Function to verify whether a character is operator symbol or not. 
 bool Assign::IsOperator(char C) {
 
-	if (C == '+' || C == '-' || C == '*' || C == '/') {
+	if (C == '+' || C == '-' || C == '*' || C == '/'||C=='>'||C=='<') {
 
 		return true;
 	}
@@ -99,9 +102,10 @@ bool Assign::IsOperator(char C) {
 
 }
 
-// Function to verify whether a character is alphanumeric chanaracter (letter or numeric digit) or not. 
+// Function to verify whether a character is alphanumeric character (letter or numeric digit) or not. 
 bool Assign::IsOperand(char C) {
 
+	
 	if (C >= '0' && C <= '9') { return true; }
 	if (C >= 'a' && C <= 'z') { return true; }
 	if (C >= 'A' && C <= 'Z') { return true; }
@@ -142,42 +146,45 @@ int Assign::GetOperatorWeight(char op) {
 
 void Assign::ejecutar(string instruction) {
 
-	//string operation;
+	string operation;
 	
-	/**for (int i = instruction.find("=") + 1; i < instruction.length(); i++) { // getting the operation that needs
+	for (int i = instruction.find("=") + 1; i < instruction.length(); i++) { // getting the operation that needs
 		                                                                     // to be evaluated from string
 		operation += instruction[i];
-	} */
+	}
 	// remember to replace instruction with operation once it works
-	string PostfixOp = to_postfix(instruction,stack); // hasta acá aparentemente funciona
+	 string PostfixOp=to_postfix(operation,stack); // hasta acá aparentemente funciona
 
-	Calculate(PostfixOp, stack, list,Intstack);
+	cout<<PostfixOp<<endl;
+
+	int test=Calculate(PostfixOp, stack, list, StackInt);
+
+	cout << test << endl;
 	
-	stack->print(stack->get_top());
 
 	
 }
 
-void Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack* Stackint ) {
+int Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack* Stackint ) {
+
 
 	for (int i = 0; i < operation.length(); i++) {
 
 		// Scanning each character from left. 
 		// If character is a delimitter, move on. 
+		
 		if (operation[i] == ' ' || operation[i] == ',') { continue; }
 
-		// If character is operator, pop two elements from stack, perform operation and push the result back.
-		// the exception apparently is thrown due to this function
+		// If character is operator, pop two elements from stack, perform operation and push the result back. 
 		else if (IsOperator(operation[i])) {
 			// Pop two operands. 
-			int operand2 = int(stack->get_top()->get_Value()); stack->pop();
-			int operand1 = int(stack->get_top()->get_Value()); stack->pop();
+			int operand2 = Stackint->get_top()->get_Value(); Stackint->pop();
+			int operand1 = Stackint->get_top()->get_Value(); Stackint->pop();
 			// Perform operation
 			int result = PerformOperation(operation[i], operand1, operand2);
 			//Push back result of operation on stack. 
-			stack->push(char(result));
+			Stackint->push(result);
 		} 
-
 		else if (IsNumericDigit(operation[i])) {
 			// Extract the numeric operand from the string
 			// Keep incrementing i as long as you are getting a numeric digit. 
@@ -194,21 +201,15 @@ void Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack
 			// We do not want to skip the non-numeric character by incrementing i twice. 
 			i--;
 
-			// Push operand on stack. 
-			stack->push((char)operand);
+			// Push operand on stack.  
+			Stackint->push(operand);
+			//Stackint->push(int(operation[i] - '0'));
 		}
-
-		else if (IsVariable(operation[i])) {
-
-			int Variable_value = list->get_IntVariable(operation[i]);
-			 
-			stack->push(char(Variable_value));
-
-		}  
-	
 	}
-
-	// return int (stack->get_top()->get_Value() );
+	// If expression is in correct format, Stack will finally have one element. This will be the output. 
+	return Stackint->get_top()->get_Value();
+	
+	
 }
 
 

@@ -23,6 +23,7 @@ public:
 
     void print(Variable* HeadOfList);
 
+    void set_IntVariable(char name,int NewValue);
     int get_IntVariable(char character);
 };
 

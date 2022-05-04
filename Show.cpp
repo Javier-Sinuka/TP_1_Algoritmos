@@ -2,7 +2,9 @@
 
 Show::Show() {}
 
-void Show::ejecutar(){
+void Show::ejecutar() {}
+
+void Show::ejecutar(VarList* lista){
     string instruccion = contenidoString;
 
     int posInit = 0;
@@ -24,7 +26,7 @@ void Show::ejecutar(){
         nombreVar = splitted;
         posFound = -1;
     }
-    cout << estructura.lista_variables->get_IntVariable(StringToCharArray(nombreVar)) << endl;
+    cout << "\n" << lista->get_IntVariable(StringToCharArray(nombreVar));
 }
 
 void Show::set_string(string nuevo) {

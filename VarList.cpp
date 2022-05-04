@@ -2,7 +2,7 @@
 
 #include "VarList.h"
 
-VarList::VarList() { head = nullptr; }
+VarList::VarList() { head = new Variable('%',"",0,NULL); }
 
 Variable* VarList::get_head() { return head; }
 
@@ -42,6 +42,24 @@ void VarList::print(Variable* HeadOfList) {
 
     print(HeadOfList->get_Next());
 }
+
+void VarList::set_IntVariable(char name,int NewValue) {
+
+    Variable* aux = head;
+
+    do {
+
+        if (aux->get_Name() == name) {
+
+
+            aux->set_IntValue(NewValue);
+        }
+
+        aux = aux->get_Next();
+    } while (aux != nullptr);
+
+}
+
 int VarList::get_IntVariable(char character) {
 
     Variable* aux = head;

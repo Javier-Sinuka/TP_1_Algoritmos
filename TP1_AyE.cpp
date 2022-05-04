@@ -28,6 +28,9 @@ void TP1_AyE::ejecutar() {
     Lectura_Archivo l1;
     Show observar;
     Salto s;
+    //TP1_AyE tp;
+    CharStack* cSta;
+    IntStack* iSta;
     bool banderaJump = true;
     Nodo* czo_lista;
 
@@ -50,12 +53,12 @@ void TP1_AyE::ejecutar() {
                 cout << "\nSe ejecuto una instruccion de condicion";//Instruccion de condicion
                 break;
             case 3:
-                observar.set_string(instruccion);
-                observar.ejecutar();
+               // observar.set_string(instruccion);
+                observar.ejecutar(lista_variables);
                 cout << "\nSe ejecuto instruccion de show";//instruccion de show
                 break;
             case 4: {
-                Nodo* nuevo_comienzo = s.ejecutar(instruccion, l1.lista_de_variables, czo_lista);
+                Nodo *nuevo_comienzo = s.ejecutar(instruccion, l1.lista_de_variables, czo_lista);
                 if (nuevo_comienzo != nullptr) {
                     l1.lista_de_variables->set_head(nuevo_comienzo);
                     banderaJump = false;
@@ -63,12 +66,16 @@ void TP1_AyE::ejecutar() {
                 cout << "\nSe ejecuto instruccion de jump";//instruccion de jump
                 break;
             }
-            case 5:
+            case 5: {
+                Assign asigno(instruccion, lista_variables, cSta, iSta);
+                asigno.ejecutar(instruccion);
                 cout << "\nSe ejecuto instruccion de asignacion";//Instruccion de asigancion
                 break;
+            }
             case 6:
-                cout<<"\nNo se reconoce la instruccion";
+                cout << "\nNo se reconoce la instruccion";
                 break;
+
         }
 
         if(banderaJump){

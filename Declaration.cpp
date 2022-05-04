@@ -7,7 +7,6 @@ Declaration::Declaration(string instruction, VarList* list) {
 }
 
 void Declaration::ejecutar() {
-
     if (instruction.at(0) == 'I') {
         list->add_variable(instruction.at(instruction.length() - 1), "INT",0);  // crea nueva Variable y la agrega a la lista
     }

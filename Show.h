@@ -8,11 +8,12 @@ class Show : public Instruccion{
 public:
     Show();
     void ejecutar();
+    void ejecutar(VarList*);
     char StringToCharArray(string);
     void set_string(string);
 
 private:
-    TP1_AyE estructura;
+    //TP1_AyE estructura;
     string contenidoString;
 };
 

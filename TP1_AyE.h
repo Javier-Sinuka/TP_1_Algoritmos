@@ -4,6 +4,9 @@
 #include "Declaration.h"
 #include "Salto.h"
 #include "Show.h"
+#include "Assign.h"
+#include "CharStack.h"
+#include "IntStack.h"
 
 class TP1_AyE : public Instruccion{
 private:

@@ -19,8 +19,6 @@ public:
     Character* get_top();
     bool is_empty();
     void print(Character* stack);
-
-
 };
 
 

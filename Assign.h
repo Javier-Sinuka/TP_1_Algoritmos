@@ -25,7 +25,6 @@ private:
     IntStack* StackInt;
 
 public:
-    Assign();
 
     Assign(string, VarList*, CharStack*,IntStack*);
 
@@ -54,9 +53,6 @@ public:
     bool IsNumericDigit(char C);
 
     bool IsVariable(char C);
-
-
-
 
 };
 

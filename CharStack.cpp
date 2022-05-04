@@ -8,7 +8,7 @@
 
 
 
-CharStack::CharStack() { top = nullptr; }
+CharStack::CharStack() { top = nullptr;}
 
 void CharStack::push(char Newchar) {
 
@@ -25,17 +25,14 @@ void CharStack::push(char Newchar) {
 };
 
 void CharStack::pop() {
-
     Character* aux = top;
     top = top->get_next();
     delete aux;
-
 };
 
 Character* CharStack::get_top() { return top; }
 
 bool CharStack::is_empty() {
-
     if (top == nullptr) {
         return true;
     }

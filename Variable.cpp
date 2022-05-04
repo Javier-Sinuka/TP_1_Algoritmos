@@ -19,6 +19,7 @@ int Variable::get_IntValue() { return IntValue; }
 int Variable::get_BoolValue() { return BoolValue; }
 char Variable::get_Name() { return Name; }
 Variable* Variable::get_Next() { return Next; }
+string Variable::get_type() { return Type; }
 
 //setters
 void Variable::set_IntValue(int value) { IntValue = value; }

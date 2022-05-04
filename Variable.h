@@ -29,6 +29,7 @@ public:
     int get_BoolValue();
     char get_Name();
     Variable* get_Next();
+    string get_type();
 
     //setters
     void set_IntValue(int value);

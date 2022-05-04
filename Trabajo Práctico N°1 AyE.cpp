@@ -22,15 +22,19 @@ int main(){
     IntStack stack2;
     string operation = "ABBB";
 
-   /** Declaration var1("a=5", &list);
-    Declaration var2("b=4", &list);
-    Declaration var3("c=3", &list); */
 
+    Declaration var1("INT a", &list);
+    var1.ejecutar();
+    Declaration var2("INT b", &list);
+    var2.ejecutar();
+    //Declaration var3("INT c", &list);
+    //var3.ejecutar();
+    
     Assign test(operation, &list, &stack, &stack2);
 
-   
     test.ejecutar("a=(1500 /10 )* 3 "); // tiene que haber un espacio en blanco a la derecha por cada valor numerico
 
+    list.print(list.get_head());
     
     //Assign test2(operation, &list, &stack, &stack2);
    

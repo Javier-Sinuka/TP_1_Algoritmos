@@ -36,11 +36,35 @@ void VarList::print(Variable* HeadOfList) {
 
     if (HeadOfList == NULL) { cout << "Final de la lista" << endl; return; }
 
-    cout << HeadOfList->get_IntValue() << endl;
-    cout << HeadOfList->get_BoolValue() << endl;
+    cout << "Nombre: " << HeadOfList->get_Name() << endl;
+    cout << "Tipo: " << HeadOfList->get_type() << endl;
+    cout << "Valor entero: "<<HeadOfList->get_IntValue() << endl;
+    cout << "Valor booleano: "<<HeadOfList->get_BoolValue() << endl;
 
     print(HeadOfList->get_Next());
+
 }
+
+void VarList::set_IntVariable(char name,int NewValue) {
+
+    cout << name << endl;
+    cout << NewValue << endl;
+    Variable* aux = head;
+
+    do {
+
+        if (aux->get_Name() == name) {
+
+            aux->set_IntValue(NewValue);
+        }
+
+        aux = aux->get_Next();
+    } while (aux->get_Next() != nullptr);
+
+}
+
+
+
 int VarList::get_IntVariable(char character) {
 
     Variable* aux = head;

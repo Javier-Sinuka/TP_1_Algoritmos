@@ -137,8 +137,6 @@ int Assign::GetOperatorWeight(char op) {
 	case '*':
 	case '/':
 		weight = 2;
-	/**case '$':
-		weight = 3; */
 	}
 	return weight;
 
@@ -153,13 +151,18 @@ void Assign::ejecutar(string instruction) {
 		operation += instruction[i];
 	}
 	// remember to replace instruction with operation once it works
-	 string PostfixOp=to_postfix(operation,stack); // hasta acá aparentemente funciona
+	string PostfixOp=to_postfix(operation,stack); 
 
 	cout<<PostfixOp<<endl;
 
-	int test=Calculate(PostfixOp, stack, list, StackInt);
+	int result=Calculate(PostfixOp, stack, list, StackInt);
 
-	cout << test << endl;
+
+	list->set_IntVariable(instruction[0], result);   // search in the list and assign value
+
+	
+
+
 	
 
 	
@@ -184,7 +187,16 @@ int Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack*
 			int result = PerformOperation(operation[i], operand1, operand2);
 			//Push back result of operation on stack. 
 			Stackint->push(result);
-		} 
+		}
+
+		else if (islower(operation[i])) {
+
+			Stackint->push(list->get_IntVariable(operation[i]) );
+
+		}
+
+
+
 		else if (IsNumericDigit(operation[i])) {
 			// Extract the numeric operand from the string
 			// Keep incrementing i as long as you are getting a numeric digit. 
@@ -203,8 +215,10 @@ int Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack*
 
 			// Push operand on stack.  
 			Stackint->push(operand);
-			//Stackint->push(int(operation[i] - '0'));
 		}
+
+	
+
 	}
 	// If expression is in correct format, Stack will finally have one element. This will be the output. 
 	return Stackint->get_top()->get_Value();
@@ -218,6 +232,8 @@ int Assign::PerformOperation(char operation, int operand1, int operand2){
 	else if (operation == '-') { return operand1 - operand2; }
 	else if (operation == '*') { return operand1 * operand2; }
 	else if (operation == '/') { return operand1 / operand2; }
+	else if (operation == '<') { return operand1 < operand2; }
+	else if (operation == '>') { return operand1 > operand2; }
 
 	else cout << "Unexpected Error \n";
 	return -1;

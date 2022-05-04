@@ -16,7 +16,7 @@ public:
     Lectura_Archivo();
     void ejecutar();
     void almacenar_contenido_archivo();
-//    Variable lectura_variables(string instruccion);
+//  Variable lectura_variables(string instruccion);
     char StringToCharArray(string);
 
 

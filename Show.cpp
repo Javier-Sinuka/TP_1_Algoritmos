@@ -2,10 +2,44 @@
 
 Show::Show() {}
 
-void Show::ejecutar(string posicion) {
-    get_show(posicion);
+void Show::ejecutar(){
+    string instruccion = contenidoString;
+
+    int posInit = 0;
+    int posFound = 0;
+    string splitted;
+
+    string tipoVar;
+    string nombreVar;
+
+    while(posFound >= 0){
+        posFound = instruccion.find(" ", posInit);
+        splitted = instruccion.substr(posInit, posFound - posInit);
+        posInit = posFound + 1;
+        tipoVar = splitted;
+
+        posFound = instruccion.find("\n", posInit);
+        splitted = instruccion.substr(posInit, posFound - posInit);
+        posInit = posFound + 1;
+        nombreVar = splitted;
+        posFound = -1;
+    }
+    cout << estructura.lista_variables->get_IntVariable(StringToCharArray(nombreVar)) << endl;
 }
 
-void Show::get_show(string posicion) {
-    cout << posicion << endl;
+void Show::set_string(string nuevo) {
+     contenidoString = nuevo;
+}
+
+char Show::StringToCharArray(string cadena) {
+        int longitud = 1;
+        string str = cadena;
+        char nombre[1];
+        longitud = str.length();
+
+        for (int i = 0; i < longitud; i++)
+        {
+            nombre[i] = str[i];
+        }
+        return nombre[0];
 }

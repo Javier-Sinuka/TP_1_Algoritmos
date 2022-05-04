@@ -26,7 +26,7 @@ int TP1_AyE::identificar_instruccion(string instruccion) {
 
 void TP1_AyE::ejecutar() {
     Lectura_Archivo l1;
-   // Assign d;
+    Show observar;
     Salto s;
     bool banderaJump = true;
     Nodo* czo_lista;
@@ -40,7 +40,8 @@ void TP1_AyE::ejecutar() {
 
         switch (tipo_instruccion) {
             case 1: {
-               // d.ejecutar(instruccion);
+                Declaration d(instruccion, lista_variables);
+                d.ejecutar();
                 cout << "\nSe ejecuto una instruccion de declaracion";//Instruccion de declaracion
                 break;
             }
@@ -49,7 +50,8 @@ void TP1_AyE::ejecutar() {
                 cout << "\nSe ejecuto una instruccion de condicion";//Instruccion de condicion
                 break;
             case 3:
-
+                observar.set_string(instruccion);
+                observar.ejecutar();
                 cout << "\nSe ejecuto instruccion de show";//instruccion de show
                 break;
             case 4: {

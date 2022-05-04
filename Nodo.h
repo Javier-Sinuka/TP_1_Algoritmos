@@ -13,12 +13,13 @@ private:
     Nodo* Next;
 
 public:
-    Nodo(string lineaLeida, Nodo* Next);
+    Nodo(){lineaLeida = ""; Next = NULL;};
+    Nodo(string lineaLeida);
 
     //Getter
-    string get_ContenidoNodo();
-    Nodo* get_Next();
-    bool get_EsVacio();
+    string get_ContenidoNodo(); //Devuelve el contenido del nodo
+    Nodo* get_Next(); //Devuelve la cabeza del nodo
+    bool get_EsVacio(); //Devuelve true si la cabeza es NULL
 
     //Setter
     void set_LineaNueva(string linea_leida);

@@ -26,7 +26,7 @@ int TP1_AyE::identificar_instruccion(string instruccion) {
 
 void TP1_AyE::ejecutar() {
     Lectura_Archivo l1;
-    Assign d;
+   // Assign d;
     Salto s;
     bool banderaJump = true;
     Nodo* czo_lista;
@@ -40,7 +40,7 @@ void TP1_AyE::ejecutar() {
 
         switch (tipo_instruccion) {
             case 1: {
-                d.ejecutar(instruccion);
+               // d.ejecutar(instruccion);
                 cout << "\nSe ejecuto una instruccion de declaracion";//Instruccion de declaracion
                 break;
             }
@@ -53,9 +53,9 @@ void TP1_AyE::ejecutar() {
                 cout << "\nSe ejecuto instruccion de show";//instruccion de show
                 break;
             case 4: {
-                Nodo_T<string> *nuevo_comienzo = s.ejecutar(instruccion, l1.lista_texto, czo_lista);
+                Nodo* nuevo_comienzo = s.ejecutar(instruccion, l1.lista_de_variables, czo_lista);
                 if (nuevo_comienzo != nullptr) {
-                    l1.lista_texto->setComienzo(nuevo_comienzo);
+                    l1.lista_de_variables->set_head(nuevo_comienzo);
                     banderaJump = false;
                 }
                 cout << "\nSe ejecuto instruccion de jump";//instruccion de jump
@@ -69,11 +69,9 @@ void TP1_AyE::ejecutar() {
                 break;
         }
 
-        if(banderaJump){l1.lista_texto = l1.lista_texto->resto();}
-
+        if(banderaJump){
+            l1.lista_de_variables = l1.lista_de_variables->resto();
+        }
         banderaJump = true;
-
     }
-
-
 }

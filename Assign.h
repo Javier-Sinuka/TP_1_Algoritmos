@@ -25,6 +25,7 @@ private:
     IntStack* StackInt;
 
 public:
+    Assign();
 
     Assign(string, VarList*, CharStack*,IntStack*);
 

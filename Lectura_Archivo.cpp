@@ -18,10 +18,9 @@ void Lectura_Archivo::almacenar_contenido_archivo() {
         cout << "No se pudo abrir el archivo" << endl;
         exit(1);
     }
-
         while(!archivo.eof()){//Mientras no sea el final del archivo, recorre t0do el archivo el eof
             getline(archivo,linea); //Almacenamos el contenido del archivo en la constante string 'linea'
-            linea += "\n";
+            //linea += "\n";
             lista_de_variables->add_string(linea); // Pasamos el valor de linea a una variable string para despues poder leerla
         }
     archivo.close();

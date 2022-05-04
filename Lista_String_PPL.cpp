@@ -1,8 +1,8 @@
 #include "Lista_String_PPL.h"
-Lista_String_PPL::Lista_String_PPL() {head = nullptr;};
+Lista_String_PPL::Lista_String_PPL() {head = new Nodo();};
 
 void Lista_String_PPL::add_string(string linea) {
-    Nodo* NuevoNodo = new Nodo(linea, nullptr);
+    Nodo* NuevoNodo = new Nodo(linea);
 
     if(head == nullptr){
         head = NuevoNodo;
@@ -13,7 +13,7 @@ void Lista_String_PPL::add_string(string linea) {
 }
 
 string Lista_String_PPL::get_content(string palab) {
-    Nodo* actual = new Nodo(palab, nullptr);
+    Nodo* actual = new Nodo(palab);
     Nodo *aux1 = head;
 
     while (aux1 != nullptr){
@@ -39,11 +39,10 @@ string Lista_String_PPL::get_Contenido() {
 
 void Lista_String_PPL::set_head(Nodo *head) { this->head = head;}
 
-Nodo* Lista_String_PPL::resto() {
-    Lista_String_PPL* l = new Lista_String_PPL();//crea una lista con la direccion get_next y lo retornamos como el resto de la lista
-    Lista_String_PPL* aux = new Lista_String_PPL();
-    aux= l->head->get_Next(); //TODO: continuar con el metodo RESTO
-    return (l->head->get_Next());
+Lista_String_PPL* Lista_String_PPL::resto() {
+    Lista_String_PPL *l = new Lista_String_PPL();//crea una lista con la direccion get_next y lo retornamos como el resto de la lista
+    l->set_head(head->get_Next());
+    return l;
 }
 
 int Lista_String_PPL::size() {
@@ -54,3 +53,4 @@ int Lista_String_PPL::size() {
         return aux + 1;
     }
 }
+

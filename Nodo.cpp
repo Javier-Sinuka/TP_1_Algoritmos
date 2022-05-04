@@ -1,7 +1,7 @@
 #include "Nodo.h"
-Nodo::Nodo(string lineaLeida, Nodo *Next) {
+Nodo::Nodo(string lineaLeida) {
     this->lineaLeida = lineaLeida;
-    this->Next = Next;
+    Next = NULL;
 }
 
 string Nodo::get_ContenidoNodo() {return lineaLeida;}

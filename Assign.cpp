@@ -7,7 +7,7 @@
 #define endl std::endl
 #define string std::string */
 
-
+Assign::Assign() {}
 
 Assign::Assign(string instruct,VarList* list,CharStack* stack,IntStack* StackInt) {
 

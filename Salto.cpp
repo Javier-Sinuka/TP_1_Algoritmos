@@ -10,15 +10,15 @@ Nodo* Salto::ejecutar(string instruccion, Lista_String_PPL *l,Nodo* czo_lista) {
     l->set_head(czo_lista);
 
     if(cantidad > 0 && cantidad <= l->size()) {
-        Nodo_T<string> *czo_nuevo;
+        Nodo* czo_nuevo;
 
         for (int i = 0; i < cantidad; i++) {
-            czo_nuevo = l->getComienzo();
+            czo_nuevo = l->get_head();
             l = l->resto();
         }
         return czo_nuevo;
     }
-    l->setComienzo(aux);
+    l->set_head(aux);
     cout<< "\nNumero de instruccion invalida";
     return nullptr;
 }

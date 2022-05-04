@@ -47,19 +47,18 @@ void VarList::print(Variable* HeadOfList) {
 
 void VarList::set_IntVariable(char name,int NewValue) {
 
-    cout << name << endl;
-    cout << NewValue << endl;
     Variable* aux = head;
 
     do {
 
         if (aux->get_Name() == name) {
 
+            
             aux->set_IntValue(NewValue);
         }
 
         aux = aux->get_Next();
-    } while (aux->get_Next() != nullptr);
+    } while (aux != nullptr);
 
 }
 
@@ -69,7 +68,7 @@ int VarList::get_IntVariable(char character) {
 
     Variable* aux = head;
 
-    while (aux->get_Next() != nullptr) {
+    while (aux != nullptr) {
 
         if (aux->get_Name() == character) {
 

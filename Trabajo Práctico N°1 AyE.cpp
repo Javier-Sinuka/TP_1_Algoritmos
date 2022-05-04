@@ -27,12 +27,16 @@ int main(){
     var1.ejecutar();
     Declaration var2("INT b", &list);
     var2.ejecutar();
-    //Declaration var3("INT c", &list);
-    //var3.ejecutar();
+    Declaration var3("INT c", &list);
+    var3.ejecutar();
     
     Assign test(operation, &list, &stack, &stack2);
 
     test.ejecutar("a=(1500 /10 )* 3 "); // tiene que haber un espacio en blanco a la derecha por cada valor numerico
+
+    test.ejecutar("b=(100 +95 )");
+
+    test.ejecutar("c=a+b");
 
     list.print(list.get_head());
     

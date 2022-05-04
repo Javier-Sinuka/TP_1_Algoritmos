@@ -157,6 +157,8 @@ void Assign::ejecutar(string instruction) {
 
 	int result=Calculate(PostfixOp, stack, list, StackInt);
 
+	cout << result << endl;
+
 
 	list->set_IntVariable(instruction[0], result);   // search in the list and assign value
 
@@ -191,6 +193,7 @@ int Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack*
 
 		else if (islower(operation[i])) {
 
+			
 			Stackint->push(list->get_IntVariable(operation[i]) );
 
 		}

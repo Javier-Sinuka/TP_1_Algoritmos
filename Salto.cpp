@@ -3,7 +3,6 @@
 Salto::Salto() {}
 
 Nodo* Salto::ejecutar(string instruccion, Lista_String_PPL *l,Nodo* czo_lista) {
-
     int cantidad = numeroDeInstruccion(instruccion);
     Nodo *aux = l->get_head();
 
@@ -36,6 +35,5 @@ int Salto::numeroDeInstruccion(string instruccion){
 
         break;
     }
-
     return splitted;
 }

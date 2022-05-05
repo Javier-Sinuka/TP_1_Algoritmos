@@ -17,7 +17,6 @@ public:
     int size(); //Devuelve la cantidad que tiene la lista
     Lista_String_PPL* resto(); //Devuelve un resto de la lista
 
-
 private:
     Nodo* head;
 };

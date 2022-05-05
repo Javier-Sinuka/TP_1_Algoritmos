@@ -36,8 +36,7 @@ void Show::ejecutar(VarList* lista, string instruccion){
         } else{
             cout << "\n" << "false";
         }
-}
-
+    }
 }
 
 void Show::set_string(string nuevo) {

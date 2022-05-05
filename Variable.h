@@ -1,6 +1,5 @@
 #ifndef TP_1_ALGORITMOS_VARIABLE_H
 #define TP_1_ALGORITMOS_VARIABLE_H
-#pragma once
 
 #include <iostream>
 
@@ -13,7 +12,6 @@ using namespace std;
 
 class Variable{
 private:
-
     int IntValue;
     bool BoolValue;
     char Name;
@@ -23,7 +21,6 @@ private:
 public:
     Variable();
     Variable(char Name, string Type, int IntValue, Variable* Next);
-
     Variable(char Name, string Type, bool BoolValue, Variable* Next);
 
     //getters
@@ -34,13 +31,11 @@ public:
     Variable* get_Next();
     bool esVacia();
 
-
     //setters
     void set_IntValue(int value);
     void set_BoolValue(int value);
     void set_Name(char name);
     void set_Next(Variable* Next);
-
 };
 
 

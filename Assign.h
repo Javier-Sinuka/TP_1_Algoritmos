@@ -35,26 +35,21 @@ public:
 
     int HasHigherPrecedence(char op1, char op2);
 
-    // Function to verify whether a character is operator symbol or not.
     bool IsOperator(char C);
 
-    // Function to verify whether a character is alphanumeric chanaracter (letter or numeric digit) or not.
     bool IsOperand(char C);
 
     int IsRightAssociative(char op);
 
-
     int GetOperatorWeight(char op);
 
     int Calculate(string operation, CharStack* stack,VarList* list,IntStack* Stackint);
-    //int
 
     int PerformOperation(char operation, int operand1, int operand2);
 
     bool IsNumericDigit(char C);
 
     bool IsVariable(char C);
-
 };
 
 

@@ -1,11 +1,7 @@
 #ifndef TP_1_ALGORITMOS_VARLIST_H
 #define TP_1_ALGORITMOS_VARLIST_H
 
-
-#pragma once
-
 #include "Variable.h"
-
 
 class VarList{
 private:
@@ -13,7 +9,6 @@ private:
 
 public:
     VarList();
-
     Variable* get_head();
 
     void add_variable(char Name, string Type, int IntValue);     // Variable* test

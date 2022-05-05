@@ -12,7 +12,6 @@ private:
     Character* top;
 
 public:
-
     CharStack();
     void push(char Newchar);
     void pop();

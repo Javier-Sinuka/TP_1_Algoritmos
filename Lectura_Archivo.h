@@ -19,12 +19,9 @@ public:
 //  Variable lectura_variables(string instruccion);
     char StringToCharArray(string);
 
-
-
 private:
     string linea;
     VarList lista_texto;
-
 };
 
 

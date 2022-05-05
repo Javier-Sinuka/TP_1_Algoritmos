@@ -1,7 +1,6 @@
 #include "Declaration.h"
 
 Declaration::Declaration(string instruction, VarList* list) {
-
     this->instruction = instruction;
     this->list = list;
 }

@@ -15,9 +15,7 @@ public:
     void set_string(string);
 
 private:
-    //TP1_AyE estructura;
     string contenidoString;
 };
-
 
 #endif //TP_1_ALGORITMOS_SHOW_H

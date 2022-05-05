@@ -5,7 +5,6 @@ Integer::Integer(int Value) { this->Value = Value; }
 //getters
 int Integer::get_Value() { return Value; }
 
-
 Integer* Integer::get_next() { return next; }
 
 //setters

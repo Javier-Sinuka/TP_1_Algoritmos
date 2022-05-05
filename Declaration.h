@@ -17,11 +17,9 @@ class Declaration{
 private:
     string instruction;
     VarList* list;
-
 public:
     Declaration(string Instruction, VarList* list);
     void ejecutar();
-
 };
 
 #endif //TP_1_ALGORITMOS_DECLARATION_H

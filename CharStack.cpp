@@ -11,9 +11,7 @@
 CharStack::CharStack() { top = nullptr;}
 
 void CharStack::push(char Newchar) {
-
     Character* Newcharacter = new Character(Newchar);
-
     if (top==nullptr) {
         top = Newcharacter;
     }
@@ -21,7 +19,6 @@ void CharStack::push(char Newchar) {
         Newcharacter->set_next(top);
         top = Newcharacter;
     }
-
 };
 
 void CharStack::pop() {
@@ -42,11 +39,7 @@ bool CharStack::is_empty(){
 }
 
 void CharStack::print(Character* stack) {
-
     if ( stack == nullptr) { cout << "Final del stack"; return; }
-
     cout << stack->get_Value() << endl;
-
     print(stack->get_next() );
-
 }

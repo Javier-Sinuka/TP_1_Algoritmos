@@ -155,17 +155,23 @@ void Assign::ejecutar(string instruction) {
 
 	cout<<PostfixOp<<endl;
 
-	int result=Calculate(PostfixOp, stack, list, StackInt);
-
-	cout << result << endl;
 
 
-	list->set_IntVariable(instruction[0], result);   // search in the list and assign value
+	if (operation.find('<')!=string::npos || operation.find('>')!= string::npos) {
 
-	
+		bool result = Calculate(PostfixOp, stack, list, StackInt);
+		cout << result << endl;
+		list->set_BoolVariable(instruction[0], result);
+	} 
+	else {
 
+		int result = Calculate(PostfixOp, stack, list, StackInt);
+		cout << result << endl;
+		list->set_IntVariable(instruction[0], result);
 
-	
+	}
+
+	// search in the list and assign value
 
 	
 }

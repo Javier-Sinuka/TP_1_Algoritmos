@@ -26,7 +26,7 @@ public:
 
     //getters
     int get_IntValue();
-    int get_BoolValue();
+    bool get_BoolValue();
     char get_Name();
     Variable* get_Next();
     string get_type();

@@ -16,7 +16,7 @@ Variable::Variable(char Name, string Type, bool BoolValue, Variable* Next) {
 }
 
 int Variable::get_IntValue() { return IntValue; }
-int Variable::get_BoolValue() { return BoolValue; }
+bool Variable::get_BoolValue() { return BoolValue; }
 char Variable::get_Name() { return Name; }
 Variable* Variable::get_Next() { return Next; }
 string Variable::get_type() { return Type; }

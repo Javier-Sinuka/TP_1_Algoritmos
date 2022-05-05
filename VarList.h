@@ -20,6 +20,7 @@ public:
     void print(Variable* HeadOfList);
 
     void set_IntVariable(char name,int NewValue);
+    void set_BoolVariable(char name, bool NeWValue);
     int get_IntVariable(char character);
 };
 

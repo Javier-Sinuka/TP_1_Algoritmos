@@ -4,9 +4,8 @@ Show::Show() {}
 
 void Show::ejecutar() {}
 
-void Show::ejecutar(VarList* lista){
-    string instruccion = contenidoString;
-
+void Show::ejecutar(VarList* lista, string instruccion){
+    //string instruccion = contenidoString;
     int posInit = 0;
     int posFound = 0;
     string splitted;
@@ -26,7 +25,15 @@ void Show::ejecutar(VarList* lista){
         nombreVar = splitted;
         posFound = -1;
     }
-    cout << "\n" << lista->get_IntVariable(StringToCharArray(nombreVar));
+    if(nombreVar.length() == 1){
+        cout << "\n" << lista->get_IntVariable(StringToCharArray(nombreVar));
+    } else{
+        CharStack cStack;
+        IntStack iStack;
+        Assign t;
+        cout << "\n"<< t.Calculate(t.to_postfix(nombreVar,&cStack),&cStack, lista, &iStack) <<endl;
+    }
+
 }
 
 void Show::set_string(string nuevo) {

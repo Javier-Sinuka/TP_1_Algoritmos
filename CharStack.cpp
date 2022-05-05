@@ -32,7 +32,7 @@ void CharStack::pop() {
 
 Character* CharStack::get_top() { return top; }
 
-bool CharStack::is_empty() {
+bool CharStack::is_empty(){
     if (top == nullptr) {
         return true;
     }

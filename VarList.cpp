@@ -37,8 +37,10 @@ void VarList::print(Variable* HeadOfList) {
 
     if (HeadOfList == NULL) { cout << "Final de la lista" << endl; return; }
 
-    cout << HeadOfList->get_IntValue() << endl;
-    cout << HeadOfList->get_BoolValue() << endl;
+    cout << "Nombre: " << HeadOfList->get_Name() << endl;
+    cout << "Tipo: " << HeadOfList->get_Type() << endl;
+    cout << "Valor entero: "<<HeadOfList->get_IntValue() << endl;
+    cout << "Valor booleano: "<<HeadOfList->get_BoolValue() << endl;
 
     print(HeadOfList->get_Next());
 }

@@ -27,12 +27,14 @@ int TP1_AyE::identificar_instruccion(string instruccion) {
 void TP1_AyE::ejecutar() {
     Lectura_Archivo l1;
     Show observar;
+    CharStack cSta;
+    IntStack iSta;
     Salto s;
     //TP1_AyE tp;
-    CharStack* cSta;
-    IntStack* iSta;
     bool banderaJump = true;
     Nodo* czo_lista;
+
+    l1.lista_de_variables = lista_alverre(l1.lista_de_variables);
 
     czo_lista = l1.lista_de_variables->get_head();
 
@@ -49,12 +51,11 @@ void TP1_AyE::ejecutar() {
                 break;
             }
             case 2:
-
                 cout << "\nSe ejecuto una instruccion de condicion";//Instruccion de condicion
                 break;
             case 3:
                // observar.set_string(instruccion);
-                observar.ejecutar(lista_variables);
+                observar.ejecutar(lista_variables, instruccion);
                 cout << "\nSe ejecuto instruccion de show";//instruccion de show
                 break;
             case 4: {
@@ -67,7 +68,7 @@ void TP1_AyE::ejecutar() {
                 break;
             }
             case 5: {
-                Assign asigno(instruccion, lista_variables, cSta, iSta);
+                Assign asigno(instruccion, lista_variables, &cSta, &iSta);
                 asigno.ejecutar(instruccion);
                 cout << "\nSe ejecuto instruccion de asignacion";//Instruccion de asigancion
                 break;
@@ -83,4 +84,14 @@ void TP1_AyE::ejecutar() {
         }
         banderaJump = true;
     }
+}
+
+Lista_String_PPL* TP1_AyE::lista_alverre(Lista_String_PPL* lista) {
+    Lista_String_PPL* lista_aux = new Lista_String_PPL();
+
+    while (!lista->get_EstaVacia()){
+        lista_aux->add_string(lista->get_head()->get_ContenidoNodo());
+        lista = lista->resto();
+    }
+    return lista_aux;
 }

@@ -1,6 +1,6 @@
 #include "Character.h"
 
-Character::Character(char Value) { this->Value = Value; }
+Character::Character(char Value) { this->Value = Value; next = nullptr;}
 
 //getters
 char Character::get_Value() { return Value; }

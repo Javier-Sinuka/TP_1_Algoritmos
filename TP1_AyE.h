@@ -7,6 +7,7 @@
 #include "Assign.h"
 #include "CharStack.h"
 #include "IntStack.h"
+#include "Lista_String_PPL.h"
 
 class TP1_AyE : public Instruccion{
 private:
@@ -15,6 +16,8 @@ public:
     void ejecutar();
     int identificar_instruccion(string);
     VarList *lista_variables = new VarList();
+    Lista_String_PPL* lista_alverre(Lista_String_PPL*);
+
 private:
 
 };

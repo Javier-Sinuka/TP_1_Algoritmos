@@ -7,11 +7,11 @@
 #define endl std::endl
 #define string std::string */
 
-
+Assign::Assign() {}
 
 Assign::Assign(string instruct,VarList* list,CharStack* stack,IntStack* StackInt) {
     instruction = instruct;
-    cout << "Hola soy el constructor" << endl;
+    //cout << "Hola soy el constructor" << endl;
     this->list = list;
     this->stack = stack;
     this->StackInt = StackInt;
@@ -80,8 +80,7 @@ int Assign::HasHigherPrecedence(char op1, char op2) {
     // if operator is left-associative, left one should be given priority.
     if (op1Weight == op2Weight)
     {
-        if (IsRightAssociative(op1)) return false;
-        else return true;
+        return true;
     }
     return op1Weight > op2Weight ? true : false;
 
@@ -118,11 +117,11 @@ bool Assign::IsVariable(char C) {
 
 }
 
-int Assign::IsRightAssociative(char op) {
-
-    if (op == '$') { return true; };
-    return false;
-}
+//int Assign::IsRightAssociative(char op) {
+//
+//    if (op == '$') { return true; };
+//    return false;
+//}
 
 int Assign::GetOperatorWeight(char op) {
 
@@ -151,11 +150,11 @@ void Assign::ejecutar(string instruction) {
     // remember to replace instruction with operation once it works
     string PostfixOp=to_postfix(operation,stack);
 
-    cout<<PostfixOp<<endl;
+    //cout<<PostfixOp<<endl;
 
     int result=Calculate(PostfixOp, stack, list, StackInt);
 
-    cout << result << endl;
+    //cout << result << endl;
 
 
     list->set_IntVariable(instruction[0], result);   // search in the list and assign value

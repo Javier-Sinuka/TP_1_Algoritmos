@@ -1,7 +1,5 @@
 #include "VarList.h"
 
-
-
 VarList::VarList() { head = new Variable('%',"",0,NULL); }
 
 Variable* VarList::get_head() { return head; }
@@ -94,7 +92,7 @@ void VarList::set_BoolVariable(char name, bool NewValue) {
 
             aux->set_BoolValue(NewValue);
         }
-        aux = aux->get_Next();                            // seguir acá
+        aux = aux->get_Next();                            // seguir acï¿½
     } while (aux != nullptr);
 
 }

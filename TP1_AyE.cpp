@@ -31,18 +31,23 @@ void TP1_AyE::ejecutar() {
     IntStack iSta;
     Salto s;
     Condicional cond;
+    bool banderaCondicional = false;
     //TP1_AyE tp;
     bool banderaJump = true;
     Nodo* czo_lista;
+    string instruccion;
 
     l1.lista_de_variables = lista_alverre(l1.lista_de_variables);
 
     czo_lista = l1.lista_de_variables->get_head();
 
     while (!l1.lista_de_variables->get_EstaVacia()) {
-        string instruccion = l1.lista_de_variables->get_Contenido();
-        int tipo_instruccion = identificar_instruccion(instruccion);
 
+        if(!banderaCondicional){
+            instruccion = l1.lista_de_variables->get_Contenido();
+        }
+        banderaCondicional = false;
+        int tipo_instruccion = identificar_instruccion(instruccion);
 
         switch (tipo_instruccion) {
             case 1: {
@@ -51,10 +56,18 @@ void TP1_AyE::ejecutar() {
                 cout << "\nSe ejecuto una instruccion de declaracion";//Instruccion de declaracion
                 break;
             }
-            case 2:
-                cond.ejecutar_condicional(instruccion,lista_variables);
-                cout << "\nSe ejecuto una instruccion de condicion";//Instruccion de condicion
+            case 2:{
+                string  intro;
+                intro = cond.ejecutar_condicional(instruccion,lista_variables);
+                if(intro != ""){
+                    banderaCondicional = true;
+                    instruccion = intro;
+                    banderaJump = false;
+                }
+                cout << "Contenido retornado intro: " <<intro << endl;
+                cout << "\n"<< "Se ejecuto una instruccion de condicion";//Instruccion de condicion
                 break;
+            }
             case 3:
                // observar.set_string(instruccion);
                 observar.ejecutar(lista_variables, instruccion);

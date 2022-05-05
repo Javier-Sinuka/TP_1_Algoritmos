@@ -1,1 +1,2 @@
-Creac Clase Variables
+-Ver JUMP, y ver como se comporta;
+-IF no esta implementado;

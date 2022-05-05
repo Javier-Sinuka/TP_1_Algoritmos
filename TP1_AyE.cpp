@@ -30,6 +30,7 @@ void TP1_AyE::ejecutar() {
     CharStack cSta;
     IntStack iSta;
     Salto s;
+    Condicional cond;
     //TP1_AyE tp;
     bool banderaJump = true;
     Nodo* czo_lista;
@@ -51,6 +52,7 @@ void TP1_AyE::ejecutar() {
                 break;
             }
             case 2:
+                cond.ejecutar_condicional(instruccion,lista_variables);
                 cout << "\nSe ejecuto una instruccion de condicion";//Instruccion de condicion
                 break;
             case 3:

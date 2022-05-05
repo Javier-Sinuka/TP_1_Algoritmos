@@ -1,6 +1,6 @@
 #include "VarList.h"
 
-#include "VarList.h"
+
 
 VarList::VarList() { head = new Variable('%',"",0,NULL); }
 
@@ -46,20 +46,14 @@ void VarList::print(Variable* HeadOfList) {
 }
 
 void VarList::set_IntVariable(char name,int NewValue) {
-
     Variable* aux = head;
-
     do {
-
         if (aux->get_Name() == name) {
-
 
             aux->set_IntValue(NewValue);
         }
-
         aux = aux->get_Next();
     } while (aux != nullptr);
-
 }
 
 int VarList::get_IntVariable(char character) {
@@ -74,4 +68,47 @@ int VarList::get_IntVariable(char character) {
         }
         aux = aux->get_Next();
     }
+}
+
+bool VarList::get_BoolVariable(char character) {
+
+    Variable* aux = head;
+
+    while (aux->get_Next() != nullptr) {
+
+        if (aux->get_Name() == character) {
+
+            return aux->get_BoolValue();
+        }
+        aux = aux->get_Next();
+    }
+}
+
+void VarList::set_BoolVariable(char name, bool NewValue) {
+
+    Variable* aux = head;
+
+    do {
+
+        if (aux->get_Name() == name) {
+
+            aux->set_BoolValue(NewValue);
+        }
+        aux = aux->get_Next();                            // seguir acá
+    } while (aux != nullptr);
+
+}
+
+bool VarList::estaVacia() {
+    return head->esVacia();
+}
+
+void VarList::set_head_var(Variable *head) {
+    this->head = head;
+}
+
+VarList* VarList::resto_VarList(){
+    VarList *l = new VarList();
+    l->set_head_var(head->get_Next());
+    return l;
 }

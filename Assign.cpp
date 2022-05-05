@@ -1,12 +1,6 @@
 #include "Assign.h"
 #include <iostream>
 
-
-/**#define cout std::cout
-#define cin std::cin
-#define endl std::endl
-#define string std::string */
-
 Assign::Assign() {}
 
 Assign::Assign(string instruct,VarList* list,CharStack* stack,IntStack* StackInt) {
@@ -152,15 +146,20 @@ void Assign::ejecutar(string instruction) {
 
     //cout<<PostfixOp<<endl;
 
-    int result=Calculate(PostfixOp, stack, list, StackInt);
+    if (operation.find('<')!=string::npos || operation.find('>')!= string::npos) {
 
-    //cout << result << endl;
+        bool result = Calculate(PostfixOp, stack, list, StackInt);
+        list->set_BoolVariable(instruction[0], result);
+    }
+    else {
 
+        int result = Calculate(PostfixOp, stack, list, StackInt);
+        list->set_IntVariable(instruction[0], result);
 
-    list->set_IntVariable(instruction[0], result);   // search in the list and assign value
+    }
 }
 
-int Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack* Stackint ) {
+int Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack* Stackint) {
 
 
     for (int i = 0; i < operation.length(); i++) {
@@ -182,14 +181,18 @@ int Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack*
         }
 
         else if (islower(operation[i])) {
-
-
-            Stackint->push(list->get_IntVariable(operation[i]) );
-
+            Variable *aux = new Variable();
+            aux = list->get_head();
+            while (!list->estaVacia()){
+                if(list->get_head()->get_Name() == operation[i] && list->get_head()->get_Type() == "INT"){
+                    Stackint->push(list->get_IntVariable(operation[i]));
+                }else if(list->get_head()->get_Name() == operation[i] && list->get_head()->get_Type() == "BOOL"){
+                    Stackint->push(list->get_BoolVariable(operation[i]));
+                }
+                list = list->resto_VarList();
+            }
+            list->set_head_var(aux);
         }
-
-
-
         else if (IsNumericDigit(operation[i])) {
             // Extract the numeric operand from the string
             // Keep incrementing i as long as you are getting a numeric digit.
@@ -209,14 +212,9 @@ int Assign::Calculate(string operation, CharStack* stack,VarList* list,IntStack*
             // Push operand on stack.
             Stackint->push(operand);
         }
-
-
-
     }
     // If expression is in correct format, Stack will finally have one element. This will be the output.
     return Stackint->get_top()->get_Value();
-
-
 }
 
 

@@ -1,4 +1,5 @@
 #include "Variable.h"
+Variable::Variable() {}
 
 Variable::Variable(char Name, string Type, int IntValue, Variable* Next) {
     this->Name = Name;
@@ -21,6 +22,7 @@ int Variable::get_BoolValue() { return BoolValue; }
 char Variable::get_Name() { return Name; }
 string Variable::get_Type() {return Type;}
 Variable* Variable::get_Next() { return Next; }
+bool Variable::esVacia() {return Next == nullptr;}
 
 //setters
 void Variable::set_IntValue(int value) { IntValue = value; }

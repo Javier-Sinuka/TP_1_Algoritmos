@@ -12,4 +12,4 @@ void Nodo::set_LineaNueva(string lineaLeida) { this->lineaLeida = lineaLeida;}
 
 void Nodo::set_Next(Nodo *Next) {this->Next = Next;}
 
-bool Nodo::get_EsVacio() {return Next == NULL;}
+bool Nodo::get_EsVacio() {return Next == nullptr;} //TODO: CAMBIE EL NULL POR UN NULLPTR

@@ -8,6 +8,7 @@
 #include "CharStack.h"
 #include "IntStack.h"
 #include "Lista_String_PPL.h"
+#include "Condicional.h"
 
 class TP1_AyE : public Instruccion{
 private:

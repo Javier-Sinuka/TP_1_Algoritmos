@@ -31,8 +31,12 @@ void Show::ejecutar(VarList* lista, string instruccion){
         CharStack cStack;
         IntStack iStack;
         Assign t;
-        cout << "\n"<< t.Calculate(t.to_postfix(nombreVar,&cStack),&cStack, lista, &iStack) <<endl;
-    }
+        if(t.Calculate(t.to_postfix(nombreVar,&cStack),&cStack, lista, &iStack) == 1){
+            cout << "\n" << "true";
+        } else{
+            cout << "\n" << "false";
+        }
+}
 
 }
 
